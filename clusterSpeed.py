@@ -30,7 +30,7 @@ def main():
     rank = comm.Get_rank()
     size = comm.Get_size()
 
-    iterations = 5000
+    iterations = 50000
     arrayLength = 960
 
     array = [i+1 for i in range(arrayLength)]
@@ -49,6 +49,8 @@ def main():
     if rank == 0:
         stop = timeit.default_timer()
         print('Time: ', stop - start)
+
+    MPI.Finalize()
 
 if __name__ == "__main__":
     main()
